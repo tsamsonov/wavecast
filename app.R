@@ -56,7 +56,7 @@ ui <- dashboardPage(
   ),
   dashboardSidebar(
     width = 200,
-    dateInput("date1", "Дата: ", value = "2011-04-01"),
+    dateInput("date1", "Дата: ", value = "2011-01-04"),
     radioGroupButtons(
       inputId = "times",
       label = "Срок:", 
@@ -67,6 +67,7 @@ ui <- dashboardPage(
   dashboardBody(
     fluidRow(
       column(width = 12,
+             style = "width:700px",
         tabBox(
           title = "Параметры", width = NULL,
           # The id lets us use input$tabset1 on the server to find the current tab
