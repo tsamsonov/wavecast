@@ -25,12 +25,21 @@
         min-height: 0;
         flex: 1;
       }
+      #image{
+        max-height: 1080px;
+        flex: 1;
+      }
     </style>
     <script src="https://kit.fontawesome.com/70c94c1694.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="main">
       <div id="manager">
+        <b style="margin-right:5px;margin-left:15px;">Показатель:</b>
+        <select class="custom-select custom-select-sm" id="filter_level" style="width:auto;">
+          <option value="Hs" selected>Высота значительных волн, [м]</option>
+          <option value="T">Средний период, [c]</option>
+        </select>
         <b style="margin-right:5px;margin-left:15px;">Дата и время (UTC):</b>
         <!-- </label> -->
         <input type="text" id="datetime">
@@ -88,7 +97,7 @@
         </div>
       </div>
       <div id="map">
-        <img src="" alt="Прогноз на ближайшее время" id="image">
+          <img src="http://carto.geogr.msu.ru/wavecast/maps/2020-06-11/2020-06-11_00/Hs_all_2020-06-11_00.png" alt="Прогноз на ближайшее время" class="img-fluid" id="image">
       </div>
     </div>
     <script src="./index.js"></script>
