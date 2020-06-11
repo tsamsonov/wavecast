@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <head>
+    <meta charset="utf-8">
+    <title>Прогноз ветрового волнения</title>
+    <style>
+      html, body {
+        margin: 0;     /* Remove margins */
+        height: 100%;  /* Fill the window */
+      }
+      #main{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      #manager{
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 32px;
+        align-items: center;
+      }
+      #map{
+        min-height: 0;
+        flex: 1;
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/70c94c1694.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="manager">
+        <b style="margin-right:5px;margin-left:15px;">Дата и время (UTC):</b>
+        <!-- </label> -->
+        <input type="text" id="datetime">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-light btn-sm active">
+            <input type="radio" name="time" id="t00" autocomplete="off" value="00" checked> 00
+          </label>
+          <label class="btn btn-light btn-sm">
+            <input type="radio" name="time" id="t03" autocomplete="off" value="03"> 03
+          </label>
+          <label class="btn btn-light btn-sm">
+            <input type="radio" name="time" id="t06" autocomplete="off" value="06"> 06
+          </label>
+          <label class="btn btn-light btn-sm">
+            <input type="radio" name="time" id="t09" autocomplete="off" value="09"> 09
+          </label>
+          <label class="btn btn-light btn-sm">
+            <input type="radio" name="time" id="t12" autocomplete="off" value="12"> 12
+          </label>
+          <label class="btn btn-light btn-sm">
+            <input type="radio" name="time" id="t15" autocomplete="off" value="15"> 15
+          </label>
+          <label class="btn btn-light btn-sm">
+            <input type="radio" name="time" id="t18" autocomplete="off" value="18"> 18
+          </label>
+          <label class="btn btn-light btn-sm">
+            <input type="radio" name="time" id="t21" autocomplete="off" value="21"> 21
+          </label>
+        </div>
+        <button type="button" class="btn btn-outline-secondary btn-sm" id="min_date">От</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" id="btn_prev"><i class="fas fa-arrow-left"></i></button>
+        <button type="button" class="btn btn-outline-primary btn-sm" id="btn_next"><i class="fas fa-arrow-right"></i></button>
+        <button type="button" class="btn btn-outline-secondary btn-sm" id="max_date">До</button>
+        <button type="button" class="btn btn-light btn-sm"  data-toggle="modal" data-target="#info" id="info_btn"><i class="fas fa-info"></i></button>
+
+        <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Прогноз ветрового волнения</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Приложение создано на <a href="http://www.geogr.msu.ru/" target="_blank">Географическом факультете</a> МГУ имени М. В. Ломоносова.<br><br>
+                Система работает в режиме тестирования. При дальнейшем развитии проекта будут добавлены новые функции и возможности.<br><br>
+                <em>Исследование выполнено при поддержке Российского фонда фундаментальных исследований, проект № 18-05-80088</a> (руководитель <a href="https://istina.msu.ru/profile/arkhipkin/">В. С. Архипкин</a>)</em>.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="map">
+        <img src="" alt="Прогноз на ближайшее время">
+      </div>
+    </div>
+    <script src="./index.js"></script>
+ </body>
+</html>

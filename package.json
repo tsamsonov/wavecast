@@ -1,0 +1,35 @@
+{
+  "name": "wavecast",
+  "version": "0.0.1",
+  "description": "Wave forecasting web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build --public-url . index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsamsonov/wavecast.git"
+  },
+  "keywords": [
+    "wave",
+    "forecast"
+  ],
+  "author": "Timofey Samsonov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsamsonov/wavecast/issues"
+  },
+  "homepage": "https://github.com/tsamsonov/wavecast#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "flatpickr": "^4.6.3",
+    "jquery": "^3.5.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.1"
+  }
+}
