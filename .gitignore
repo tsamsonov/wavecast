@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.cache
 dist
 node_modules
 data

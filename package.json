@@ -28,6 +28,7 @@
   "dependencies": {
     "bootstrap": "^4.5.0",
     "flatpickr": "^4.6.3",
+    "fs": "0.0.1-security",
     "jquery": "^3.5.1",
     "popper": "^1.0.1",
     "popper.js": "^1.16.1"
