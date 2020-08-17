@@ -8,6 +8,12 @@ var addr = 'http://carto.geogr.msu.ru/wavecast/maps';
 
 var times = ["t00", "t03", "t06", "t09", "t12", "t15", "t18", "t21"];
 
+let regions = new Map([
+  ["Black", ["Полный охват", "Каркинитский", "Южно-Крымский", "Западно-Азовский",
+             "Керчь", "Восточно-Азовский", "Новороссийск", "Сочи", "Поти"]],
+  ["Caspian", ["Полный охват", "Северный", "Центральный", "Южный", "Махачкала", "Баку"]]
+]);
+
 var sel_image;
 var datestr;
 var min_date;
@@ -17,10 +23,10 @@ var sel_time = '00';
 var pickr;
 var sel_var = 'Hs';
 var sel_reg = 'all';
-var sea = 'Black';
+var sel_sea = 'Black';
 
 function update_image() {
-  sel_image = `${addr}/${sea}/${datestr}/${sel_date}_${sel_time}/${sel_var}_${sel_reg}_${sel_date}_${sel_time}.png`;
+  sel_image = `${addr}/${sel_sea}/${datestr}/${sel_date}_${sel_time}/${sel_var}_${sel_reg}_${sel_date}_${sel_time}.png`;
   $("#image").attr("src", sel_image);
 }
 
@@ -86,7 +92,7 @@ function delta_time(delta) {
   set_time(datetime);
 }
 
-$.get({url: `${addr}/${sea}`}).then(function(page) {
+$.get({url: `${addr}/${sel_sea}`}).then(function(page) {
   var document = $(page);
 
   // find all links ending with .pdf
@@ -128,6 +134,28 @@ $.get({url: `${addr}/${sea}`}).then(function(page) {
       break;
     }
   }
+});
+
+$('#sea').change(function(){
+    sel_sea = this.value;
+    var select = document.getElementById("region");
+    var length = select.options.length;
+    for (var i = length-1; i > 0; i--) {
+      select.remove(i);
+    }
+
+    var names = regions.get(sel_sea);
+
+    for (var i = 1; i < names.length; i++){
+      var opt = document.createElement('option');
+      opt.value = `reg${i}`;
+      opt.innerHTML = names[i];
+      select.appendChild(opt);
+    }
+
+    sel_reg = 'all';
+
+    update_image();
 });
 
 $('#variable').change(function(){
