@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import flatpickr from 'flatpickr';
 import { English, Russian } from "flatpickr/dist/l10n/ru.js";
 
-var addr = 'http://carto.geogr.msu.ru/wavecast/maps/';
+var addr = 'http://carto.geogr.msu.ru/wavecast/maps';
 
-var times = ["t00", "t03", "t06", "t09", "t12", "t15", "t18", "t21"]
+var times = ["t00", "t03", "t06", "t09", "t12", "t15", "t18", "t21"];
 
 var sel_image;
 var datestr;
@@ -16,10 +16,11 @@ var sel_date;
 var sel_time = '00';
 var pickr;
 var sel_var = 'Hs';
-var sel_reg = 'all'
+var sel_reg = 'all';
+var sea = 'Black';
 
 function update_image() {
-  sel_image = `${addr}${datestr}/${sel_date}_${sel_time}/${sel_var}_${sel_reg}_${sel_date}_${sel_time}.png`;
+  sel_image = `${addr}/${sea}/${datestr}/${sel_date}_${sel_time}/${sel_var}_${sel_reg}_${sel_date}_${sel_time}.png`;
   $("#image").attr("src", sel_image);
 }
 
@@ -85,7 +86,7 @@ function delta_time(delta) {
   set_time(datetime);
 }
 
-$.get({url: addr}).then(function(page) {
+$.get({url: `${addr}/${sea}`}).then(function(page) {
   var document = $(page);
 
   // find all links ending with .pdf
