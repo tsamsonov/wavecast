@@ -79,6 +79,7 @@ $("input[name='time']").click(function(){
 
 function set_time(datetime) {
   if (datetime <= max_date && datetime >= min_date) {
+    check_extremes(datetime);
     sel_date = datetime.toJSON().slice(0,10);
     sel_time = datetime.toJSON().slice(11,13);
     pickr.setDate(sel_date);
@@ -121,7 +122,9 @@ $.get({url: `${addr}/${sel_sea}`}).then(function(page) {
           onChange: function(selectedDates, dateStr, instance) {
               sel_date = dateStr;
               var datetime = new Date(`${sel_date}T${sel_time}:00:00Z`);
-              set_time(datetime);
+              if (datetime > max_date) set_time(max_date)
+              else if (datetime < min_date) set_time(min_date)
+              else set_time(datetime);
           }
       });
 
