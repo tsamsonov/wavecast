@@ -25,6 +25,20 @@ var sel_var = 'Hs';
 var sel_reg = 'all';
 var sel_sea = 'Black';
 
+var nodehost = "http://carto.geogr.msu.ru/buoys";
+
+$.ajax({
+  url : nodehost,
+  type : 'POST',
+  data : {
+    query : 'yeah',
+  },
+  success : function(data) {
+    $('#buoys').prepend(`<kbd class="alert-info"><b>Текущие параметры волнения: </b>Hs = ${data["Hs"]}, Tz = ${data["Tz"]} (данные обновлены ${data["День"]}.${data["Месяц"]}.${data["Год"]} ${data["Час"]}:${data["Минута"]}). Буй установлен в заповеднике Утриш.</kbd>`)
+    console.log(data);
+  }
+})
+
 function update_image() {
   sel_image = `${addr}/${sel_sea}/${datestr}/${sel_date}_${sel_time}/${sel_var}_${sel_reg}_${sel_date}_${sel_time}.png`;
   $("#image").attr("src", sel_image);

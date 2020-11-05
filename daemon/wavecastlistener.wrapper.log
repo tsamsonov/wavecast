@@ -1,0 +1,2 @@
+2020-11-05 17:24:37 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 d:\GitHub\wavecast\node_modules\node-windows\lib\wrapper.js --file D:\GitHub\wavecast\app.js --scriptoptions= --log "Wavecast listener wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2020-11-05 17:24:37 - Started 9988
