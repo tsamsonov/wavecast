@@ -34,7 +34,7 @@ $.ajax({
     query : 'yeah',
   },
   success : function(data) {
-    $('#buoys').prepend(`<kbd class="alert-info"><b>Текущие параметры волнения: </b>Hs = ${data["Hs"]}, Tz = ${data["Tz"]} (данные обновлены ${data["День"]}.${data["Месяц"]}.${data["Год"]} ${data["Час"]}:${data["Минута"]}). Буй установлен в заповеднике Утриш.</kbd>`)
+    $('#buoys').prepend(`<kbd class="alert-info"><b>Текущие параметры волнения: </b>Hs = ${data["Hs"]} м, Tz = ${data["Tz"]} с (данные обновлены ${data["День"]}.${data["Месяц"]}.${data["Год"]} ${data["Час"]}:${data["Минута"]}). Буй установлен в заповеднике Утриш.</kbd>`)
     console.log(data);
   }
 })
